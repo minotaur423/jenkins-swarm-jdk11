@@ -14,7 +14,7 @@ pipeline {
       steps {
         sh "docker system prune -af"
         echo "STARTED:\nJob '${env.JOB_NAME} [${env.BUILD_NUMBER}]'\n(${env.BUILD_URL})"
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-creds', url: 'https://github.com/minotaur423/jenkins-swarm.git']])
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-creds', url: 'https://github.com/minotaur423/jenkins-swarm-jdk11.git']])
         script {
           commitNum = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
           if(env.BRANCH_NAME.contains('/')) {
