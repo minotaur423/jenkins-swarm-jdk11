@@ -5,8 +5,8 @@ pipeline {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '30', numToKeepStr: '10')
   }
   environment {
-    project = 'jenkins-swarm'
-    tag = 'jdk11'
+    project = 'jenkins-swarm-jdk11'
+    tag = 'default'
     commitNum = 'default'
   }
   stages{
