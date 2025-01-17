@@ -31,15 +31,15 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'ARTIFACTORY_DOCKER_PWD', usernameVariable: 'ARTIFACTORY_DOCKER_USER')]) {
               sh 'echo ${ARTIFACTORY_DOCKER_PWD} | docker login -u ${ARTIFACTORY_DOCKER_USER} --password-stdin ${ARTIFACTORY_DOCKER_SERVER}'
             }
-            sh "docker build --pull --no-cache -t ${ARTIFACTORY_DOCKER_SERVER}/docker/${project}:${tag}.${commitNum} ."
-            sh "docker build -t ${ARTIFACTORY_DOCKER_SERVER}/docker/${project}:${tag}-latest ."
+            sh "docker build --pull --no-cache -t ${ARTIFACTORY_DOCKER_SERVER}/docker-local/${project}:${tag}.${commitNum} ."
+            sh "docker build -t ${ARTIFACTORY_DOCKER_SERVER}/docker-local/${project}:${tag}-latest ."
           }
       }
     }
     stage('Push Docker') {
       steps {
-          sh "docker push ${ARTIFACTORY_DOCKER_SERVER}/docker/${project}:${tag}.${commitNum}"
-          sh "docker push ${ARTIFACTORY_DOCKER_SERVER}/docker/${project}:${tag}-latest"
+          sh "docker push ${ARTIFACTORY_DOCKER_SERVER}/docker-local/${project}:${tag}.${commitNum}"
+          sh "docker push ${ARTIFACTORY_DOCKER_SERVER}/docker-local/${project}:${tag}-latest"
       }
     }
   }
