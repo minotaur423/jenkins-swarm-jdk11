@@ -4,6 +4,9 @@ pipeline {
     disableConcurrentBuilds()
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '30', numToKeepStr: '10')
   }
+  triggers {
+    pollSCM 'H 2 * * *'
+}
   environment {
     project = 'jenkins-swarm-jdk11'
     tag = 'default'
