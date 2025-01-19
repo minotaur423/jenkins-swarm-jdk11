@@ -41,7 +41,7 @@ spec:
                   optional: false
             - name: SWARM_EXECUTORS
               value: '2'
-          image: artifactory.home.lcl/docker-local/jenkins-swarm-jdk11:main.cdb34a9
+          image: artifactory.home.lcl/docker-local/jenkins-swarm-jdk11:main.927a1b6
 #         image: minotaur423/jenkins-swarm-11-v3.47:v1
           imagePullPolicy: Always
           name: jenkins-swarm-11
