@@ -19,6 +19,6 @@ if [ -n "${SWARM_EXECUTORS}" ]; then
     SWARM_ARGS="${SWARM_ARGS} -executors ${SWARM_EXECUTORS}"
 fi
 
-SWARM_ARGS="${SWARM_ARGS} -labels jdk11"
+SWARM_ARGS="${SWARM_ARGS} -labels jdk11 node14"
 
-exec /usr/lib/jvm/java-17-openjdk-amd64/bin/java -jar "/usr/share/jenkins/swarm-client-${SWARM_CLIENT_VERSION}.jar" -disableSslVerification -fsroot "${JENKINS_HOME}${CONTAINER_DIR}" ${SWARM_ARGS} -master "http://${JENKINS_HOST}:${JENKINS_PORT}${JENKINS_PREFIX}"
+exec /usr/lib/jvm/java-17-openjdk-arm64/bin/java -jar "/usr/share/jenkins/swarm-client-${SWARM_CLIENT_VERSION}.jar" -disableSslVerification -fsroot "${JENKINS_HOME}${CONTAINER_DIR}" ${SWARM_ARGS} -master "http://${JENKINS_HOST}:${JENKINS_PORT}${JENKINS_PREFIX}"
