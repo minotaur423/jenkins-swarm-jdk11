@@ -42,10 +42,10 @@ RUN chmod 644 /usr/share/jenkins/swarm-client-${SWARM_CLIENT_VERSION}.jar
 #  && nvm use default
 
 # Install Yarn
-RUN apt-get update && apt-get install -y apt-utils apt-transport-https
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && apt-get -q -y install yarn
+#RUN apt-get update && apt-get install -y apt-utils apt-transport-https
+#RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+#RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+#RUN apt-get update && apt-get -q -y install yarn
 
 # Install Docker
 RUN apt-get update -qq
